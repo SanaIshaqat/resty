@@ -39,7 +39,7 @@ Both headers and results should be “pretty printed” JSON
 
 [Branch state](https://github.com/SanaIshaqat/resty/tree/state)
 
-[code sand box Link LAB-27](https://codesandbox.io/s/funny-dawn-85sz6?file=/src/app.scss)
+[code sand box Link LAB-27](https://codesandbox.io/s/jolly-wilson-sp41i)
 
 [pull request LAB-27](https://github.com/SanaIshaqat/resty/pull/3)
 
