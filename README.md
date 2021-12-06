@@ -41,7 +41,7 @@ Both headers and results should be “pretty printed” JSON
 
 [code sand box Link LAB-27](https://codesandbox.io/s/funny-dawn-85sz6?file=/src/app.scss)
 
-[pull request LAB-27](https://github.com/SanaIshaqat/resty/pull/2)
+[pull request LAB-27](https://github.com/SanaIshaqat/resty/pull/3)
 
 UML :
 ![UML26](UML26.jpg)
