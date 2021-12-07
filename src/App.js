@@ -1,5 +1,4 @@
-import React from 'react';
-
+import { React, useState, useEffect } from 'react';
 import './app.scss';
 
 // Let's talk about using index.js and some other name in the component folder
@@ -8,44 +7,37 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
-import { BeatLoader } from 'react-spinners';
 
-class App extends React.Component {
-  constructor (props){
-    super (props);
-    this.state = {
-      data:null,
-      requestParams:{},
-      loadResults:false,
-    }
-  }
- 
-  callApi=(formData,inputText ,responseData)=>  {
-    this.setState ({
-      data:responseData,
-      requestParams:formData,
-    })
+
+function App() {
+  const [data, setdata] = useState(null);
+  const [requestParams, setrequestParams] = useState({});
+
+  async function callApi(requestParams) {
+    setrequestParams(requestParams);
   }
 
-   handleloadResults(loadResults) {
-    this.setState ({
-      loadResults:loadResults,
-    })
-  }
-  render (){
+  useEffect(() => {
+    (async function() {
+  
+      const req = await fetch(requestParams.url);
+      const data = await req.json();
+      setdata(data);
+    })()
+  }, [requestParams]);
 
-    return (
-      <React.Fragment>
-        <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-          <div>URL: {this.state.requestParams.url}</div>
-        <Form handleloadResults={this.handleloadResults} handleApiCall={this.callApi} />
-        {this.state.load ? <BeatLoader load /> :  <Results data ={this.state.data} />}
-        <Footer />
-      </React.Fragment>
-    );
-  }
-
+  return (
+    <>
+      <Header />
+      <Form handleApiCall={callApi} />
+      <div>
+        <div> <h3>Request Method:</h3> {requestParams.method}</div>
+        <div> <h3> URL:</h3> {requestParams.url}</div>
+      </div>
+      <Results data={data} />
+      <Footer />
+    </>
+  );
 }
 
 export default App;

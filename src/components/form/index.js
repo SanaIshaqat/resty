@@ -18,7 +18,6 @@ function Form (props){
       url: url,
     });
 
-
     const formData = {
         method:method,
         url:url,
@@ -26,17 +25,16 @@ function Form (props){
       props.handleApiCall(formData,inputText ,response.data);
       setshowTextBox(false)
 }
+
 function handleTextBox(e) {
   setshowTextBox(true);
   setMethod(e.target.id);
-
 }
 function handeleInputText(e) {
   setInputText(e.target.value);
 }
 function handelMethod(e) {
   setMethod(e.target.id);
-
 }
 
 if (method === 'GET' || method === 'DELETE' ){
@@ -84,8 +82,6 @@ if (method === 'POST' || method === 'PUT' ){
     </>
   );
 }
-
-
 }
 
 export default Form;
