@@ -43,7 +43,7 @@ if (method === 'GET' || method === 'DELETE' ){
     <>
       <form onSubmit={handleSubmit}>
         <label >
-          <span>URL: </span>
+          <span>URL:</span>
           <input name='link' type='URL' onChange={e => setUrl(e.target.value)} />
         </label>
         <label className="methods">
